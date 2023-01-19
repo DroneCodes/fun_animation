@@ -57,7 +57,7 @@ class _FallingSnowState extends State<FallingSnow> with SingleTickerProviderStat
               child: Container(
                 height: 500,
                 child: Stack(
-                  children: [
+                  children: const [
                     Align(
                       alignment: Alignment.topRight,
                       child: Icon(

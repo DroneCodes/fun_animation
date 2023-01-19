@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../animations/falling_snow.dart';
+import '../animations/random_falling_snow.dart';
 
 class ColdEmoji extends StatefulWidget {
   const ColdEmoji({Key? key,}) : super(key: key);
@@ -13,6 +14,7 @@ class ColdEmoji extends StatefulWidget {
 class _ColdEmojiState extends State<ColdEmoji> {
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
@@ -26,6 +28,7 @@ class _ColdEmojiState extends State<ColdEmoji> {
         child: Center(
           child: Stack(
             children: [
+              for (int index = 0; index < 50; index++)
               Align(
                 alignment: Alignment.center,
                 child: Container(
@@ -33,7 +36,7 @@ class _ColdEmojiState extends State<ColdEmoji> {
                     width: 90,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(100),
-                      gradient: LinearGradient(
+                      gradient: const LinearGradient(
                         begin: Alignment.topRight,
                         end: Alignment.bottomLeft,
                         colors: [Colors.blue, Colors.lightBlueAccent],
@@ -54,7 +57,7 @@ class _ColdEmojiState extends State<ColdEmoji> {
                                       color: Colors.black12,
                                       borderRadius: BorderRadius.circular(50)),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 20,
                                 ),
                                 Container(
@@ -91,8 +94,8 @@ class _ColdEmojiState extends State<ColdEmoji> {
               ),
               Align(
                 alignment: Alignment.center,
-                child: const FallingSnow(),
-              )
+                child: SnowDrop(screenHeight: size.height, screenWidth: size.width,),
+              ),
             ],
           ),
         ),

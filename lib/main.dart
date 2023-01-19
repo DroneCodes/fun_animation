@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fun_animation/animation.dart';
 import 'package:fun_animation/animations/falling_snow.dart';
 import 'package:fun_animation/emojis/smiling.dart';
+import 'package:fun_animation/emojis/sweaty.dart';
 
 import 'emojis/cold.dart';
 
