@@ -1,16 +1,16 @@
 import 'dart:math';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SnowDrop extends StatefulWidget {
-  // getting the size of the screen
   final double screenHeight;
   final double screenWidth;
 
-  const SnowDrop(
-      {Key? key, required this.screenHeight, required this.screenWidth})
-      : super(key: key);
+  const SnowDrop({
+    Key? key,
+    required this.screenHeight,
+    required this.screenWidth,
+  }) : super(key: key);
 
   @override
   State<SnowDrop> createState() => _SnowDropState();
@@ -29,7 +29,12 @@ class _SnowDropState extends State<SnowDrop> with TickerProviderStateMixin {
   double get screenWidth => widget.screenWidth;
 
   double rangeMap(
-      double x, double inMin, double inMax, double outMin, double outMax) {
+      double x,
+      double inMin,
+      double inMax,
+      double outMin,
+      double outMax,
+      ) {
     return (x - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
   }
 
@@ -41,10 +46,10 @@ class _SnowDropState extends State<SnowDrop> with TickerProviderStateMixin {
       z = random.nextDouble() * 20;
       length = rangeMap(z, 0, 20, 10, 20);
       animationController.duration = Duration(
-        milliseconds: rangeMap(z, 0, 20, 500, 3000).toInt(),
+        milliseconds: rangeMap(z, 0, 20, 800, 3000).toInt(),
       );
       dx = random.nextDouble() * screenWidth;
-      dy = -500 - (random.nextDouble() * -100);
+      dy = -20; // Set starting y position just above the screen
       setState(() {});
       isVisible = true;
       if (mounted) animationController.forward();
@@ -54,14 +59,14 @@ class _SnowDropState extends State<SnowDrop> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    dx = random.nextDouble() * screenWidth ;
-    dy = -500 - (random.nextDouble() * -100);
+    dx = random.nextDouble() * screenWidth;
+    dy = random.nextDouble() * screenHeight;
     z = random.nextDouble() * 20;
     length = rangeMap(z, 0, 20, 10, 20);
     animationController = AnimationController(
       vsync: this,
       duration: Duration(
-        milliseconds: rangeMap(z, 0, 20, 400, 2000).toInt(),
+        milliseconds: rangeMap(z, 0, 20, 800, 3000).toInt(),
       ),
     );
     animation = Tween<double>(begin: dy, end: screenHeight).animate(
@@ -92,10 +97,10 @@ class _SnowDropState extends State<SnowDrop> with TickerProviderStateMixin {
               animation.value,
             ),
             child: const Icon(
-                CupertinoIcons.snow,
-                color: Colors.white,
-                size: 60,
-              ),
+              CupertinoIcons.snow,
+              color: Colors.white,
+              size: 10,
+            ),
           );
         },
       ),

@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fun_animation/animation.dart';
-import 'package:fun_animation/animations/falling_snow.dart';
-import 'package:fun_animation/emojis/smiling.dart';
-import 'package:fun_animation/emojis/sweaty.dart';
-
-import 'emojis/cold.dart';
+import 'package:fun_animation/animations/snow_fall.dart';
+import 'package:fun_animation/transistion.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,8 +12,8 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: ColdEmoji(),
+    return MaterialApp(
+      home: Transition(),
       debugShowCheckedModeBanner: false,
     );
   }

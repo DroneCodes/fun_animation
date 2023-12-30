@@ -1,11 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../animations/falling_snow.dart';
 import '../animations/random_falling_snow.dart';
 
 class ColdEmoji extends StatefulWidget {
-  const ColdEmoji({Key? key,}) : super(key: key);
+  const ColdEmoji({Key? key}) : super(key: key);
 
   @override
   State<ColdEmoji> createState() => _ColdEmojiState();
@@ -19,19 +16,20 @@ class _ColdEmojiState extends State<ColdEmoji> {
       body: Container(
         decoration: BoxDecoration(
           gradient: const LinearGradient(
-              begin: Alignment.bottomLeft,
-              end: Alignment.topRight,
-              stops: [0.4, 0.7],
-              colors: [Colors.blue, Colors.white],
-              tileMode: TileMode.repeated),
+            begin: Alignment.bottomLeft,
+            end: Alignment.topRight,
+            stops: [0.4, 0.7],
+            colors: [Colors.lightBlue, Colors.white],
+            tileMode: TileMode.repeated,
+          ),
         ),
         child: Center(
           child: Stack(
             children: [
               for (int index = 0; index < 50; index++)
-              Align(
-                alignment: Alignment.center,
-                child: Container(
+                Align(
+                  alignment: Alignment.center,
+                  child: Container(
                     height: 90,
                     width: 90,
                     decoration: BoxDecoration(
@@ -39,7 +37,7 @@ class _ColdEmojiState extends State<ColdEmoji> {
                       gradient: const LinearGradient(
                         begin: Alignment.topRight,
                         end: Alignment.bottomLeft,
-                        colors: [Colors.blue, Colors.lightBlueAccent],
+                        colors: [Colors.lightBlue, Colors.blue],
                       ),
                     ),
                     child: Center(
@@ -54,8 +52,9 @@ class _ColdEmojiState extends State<ColdEmoji> {
                                   height: 12,
                                   width: 7,
                                   decoration: BoxDecoration(
-                                      color: Colors.black12,
-                                      borderRadius: BorderRadius.circular(50)),
+                                    color: Colors.black12,
+                                    borderRadius: BorderRadius.circular(50),
+                                  ),
                                 ),
                                 const SizedBox(
                                   width: 20,
@@ -64,8 +63,9 @@ class _ColdEmojiState extends State<ColdEmoji> {
                                   height: 12,
                                   width: 7,
                                   decoration: BoxDecoration(
-                                      color: Colors.black12,
-                                      borderRadius: BorderRadius.circular(50)),
+                                    color: Colors.black12,
+                                    borderRadius: BorderRadius.circular(50),
+                                  ),
                                 ),
                               ],
                             ),
@@ -76,7 +76,7 @@ class _ColdEmojiState extends State<ColdEmoji> {
                               height: 10,
                               width: 35,
                               decoration: BoxDecoration(
-                                color: Colors.white,
+                                color: Colors.lightBlueAccent,
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               child: Center(
@@ -90,11 +90,14 @@ class _ColdEmojiState extends State<ColdEmoji> {
                         ),
                       ),
                     ),
+                  ),
                 ),
-              ),
               Align(
                 alignment: Alignment.center,
-                child: SnowDrop(screenHeight: size.height, screenWidth: size.width,),
+                child: SnowDrop(
+                  screenHeight: size.height,
+                  screenWidth: size.width,
+                ),
               ),
             ],
           ),
