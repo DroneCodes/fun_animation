@@ -6,6 +6,7 @@ import 'dart:async';
 import 'package:fun_animation/animations/summer.dart';
 
 import 'animations/snow_fall.dart';
+import 'animations/spring_season.dart';
 class Transition extends StatefulWidget {
   @override
   _TransitionState createState() => _TransitionState();
@@ -55,6 +56,7 @@ class _TransitionState extends State<Transition> {
             });
           },
           children: [
+            SpringPage(),
             SummerPage(),
             LeafFallAnimation(),
             SnowFallAnimation(),
