@@ -7,7 +7,7 @@ class LeafWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomPaint(
       painter: LeafPainter(),
-      size: const Size(20, 20),
+      size: const Size(40, 30),
     );
   }
 }

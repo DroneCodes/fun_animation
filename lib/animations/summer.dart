@@ -61,7 +61,7 @@ class _SunWidgetState extends State<SunWidget>
 
     _sunAnimationController = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 6),
+      duration: Duration(seconds: 3),
     )..repeat(reverse: true);
 
     _sunColorAnimation = ColorTween(

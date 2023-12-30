@@ -1,6 +1,5 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-
 import '../widgets/snowFlakeWidget.dart';
 
 class SnowFallAnimation extends StatefulWidget {
@@ -68,8 +67,9 @@ class _SnowFallAnimationState extends State<SnowFallAnimation>
                   Positioned snowflakePositioned =
                   positionedSnowflake as Positioned;
                   return Positioned(
-                    top: snowflakePositioned.top! + _animation.value * 300,
-                    left: snowflakePositioned.left! + _animation.value * 300,
+                    top: snowflakePositioned.top! +
+                        _animation.value * 400, // Adjust the value to control the fall speed
+                    left: snowflakePositioned.left!, // Constant horizontal position
                     child: snowflakePositioned.child,
                   );
                 },

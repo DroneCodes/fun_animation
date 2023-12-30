@@ -213,7 +213,7 @@ class _CloudWidgetState extends State<CloudWidget>
 
     _cloudAnimationController = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 5),
+      duration: Duration(seconds: 3),
     )..repeat(reverse: true);
 
     _cloudAnimation = Tween<double>(begin: -200, end: 400).animate(
