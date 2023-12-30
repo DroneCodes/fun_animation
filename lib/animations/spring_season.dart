@@ -197,15 +197,55 @@ class FlowerWidget extends StatelessWidget {
 }
 
 
-class CloudWidget extends StatelessWidget {
+class CloudWidget extends StatefulWidget {
+  @override
+  _CloudWidgetState createState() => _CloudWidgetState();
+}
+
+class _CloudWidgetState extends State<CloudWidget>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _cloudAnimationController;
+  late Animation<double> _cloudAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _cloudAnimationController = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 5),
+    )..repeat(reverse: true);
+
+    _cloudAnimation = Tween<double>(begin: -200, end: 400).animate(
+      CurvedAnimation(
+        parent: _cloudAnimationController,
+        curve: Curves.linear,
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    _cloudAnimationController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 200,
-      height: 100,
-      child: CustomPaint(
-        painter: CloudPainter(),
-      ),
+    return AnimatedBuilder(
+      animation: _cloudAnimation,
+      builder: (context, child) {
+        return Transform.translate(
+          offset: Offset(_cloudAnimation.value, 0),
+          child: Container( // Wrap with a Container
+            width: 200,
+            height: 100,
+            child: CustomPaint(
+              painter: CloudPainter(),
+            ),
+          ),
+        );
+      },
     );
   }
 }

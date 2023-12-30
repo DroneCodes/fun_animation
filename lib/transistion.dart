@@ -22,7 +22,7 @@ class _TransitionState extends State<Transition> {
 
     _pageController = PageController(initialPage: _currentPage);
 
-    Timer.periodic(Duration(seconds: 8), (Timer timer) {
+    Timer.periodic(Duration(seconds: 5), (Timer timer) {
       if (_currentPage < 3) {
         _currentPage++;
         _pageController.animateToPage(

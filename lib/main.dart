@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fun_animation/animations/snow_fall.dart';
 import 'package:fun_animation/transistion.dart';
 
 void main() {
