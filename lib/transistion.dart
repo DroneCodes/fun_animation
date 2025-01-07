@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:fun_animation/animations/falling_leaves.dart';
-
 import 'dart:async';
-
 import 'package:fun_animation/animations/summer.dart';
-
 import 'animations/snow_fall.dart';
 import 'animations/spring_season.dart';
+
 class Transition extends StatefulWidget {
   @override
   _TransitionState createState() => _TransitionState();
@@ -19,7 +17,6 @@ class _TransitionState extends State<Transition> {
   @override
   void initState() {
     super.initState();
-
     _pageController = PageController(initialPage: _currentPage);
 
     Timer.periodic(Duration(seconds: 5), (Timer timer) {
@@ -31,7 +28,6 @@ class _TransitionState extends State<Transition> {
           curve: Curves.easeInOut,
         );
       } else {
-        // Reset to the first page after reaching the last one
         _currentPage = 0;
         _pageController.jumpToPage(0);
       }
@@ -48,19 +44,39 @@ class _TransitionState extends State<Transition> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: PageView(
+        child: PageView.builder(
           controller: _pageController,
           onPageChanged: (int page) {
             setState(() {
               _currentPage = page;
             });
           },
-          children: [
-            SpringPage(),
-            SummerPage(),
-            LeafFallAnimation(),
-            SnowFallAnimation(),
-          ],
+          itemCount: 4,
+          itemBuilder: (context, index) {
+            Widget seasonPage;
+            switch (index) {
+              case 0:
+                seasonPage = SpringPage();
+                break;
+              case 1:
+                seasonPage = SummerPage();
+                break;
+              case 2:
+                seasonPage = LeafFallAnimation();
+                break;
+              case 3:
+                seasonPage = SnowFallAnimation();
+                break;
+              default:
+                seasonPage = SpringPage();
+            }
+
+            return SizedBox.expand(
+              child: Material(
+                child: seasonPage,
+              ),
+            );
+          },
         ),
       ),
     );

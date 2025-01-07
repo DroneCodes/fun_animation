@@ -16,7 +16,7 @@ class _SpringPageState extends State<SpringPage>
 
     _flowerAnimationController = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 2),
+      duration: const Duration(seconds: 2),
     );
 
     _flowerAnimation = Tween<double>(begin: 0, end: 1).animate(
@@ -39,7 +39,7 @@ class _SpringPageState extends State<SpringPage>
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
@@ -178,7 +178,7 @@ class FlowerWidget extends StatelessWidget {
     return Container(
       width: 30,
       height: 30,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         shape: BoxShape.circle,
         color: Colors.pink,
       ),
@@ -186,7 +186,7 @@ class FlowerWidget extends StatelessWidget {
         child: Container(
           width: 10,
           height: 10,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             shape: BoxShape.circle,
             color: Colors.yellow,
           ),
@@ -213,7 +213,7 @@ class _CloudWidgetState extends State<CloudWidget>
 
     _cloudAnimationController = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 3),
+      duration: const Duration(seconds: 3),
     )..repeat(reverse: true);
 
     _cloudAnimation = Tween<double>(begin: -200, end: 400).animate(
