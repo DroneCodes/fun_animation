@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "227613701589",
+    "project_id": "seasonanimation",
+    "storage_bucket": "seasonanimation.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:227613701589:android:47060c581a42b99e10b95c",
+        "android_client_info": {
+          "package_name": "com.example.fun_animation"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzHgqxEcKaaWRl4wzciyQOveloH6hPi5w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

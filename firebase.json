@@ -1,0 +1,45 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "seasonanimation",
+          "appId": "1:227613701589:android:47060c581a42b99e10b95c",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "ios": {
+        "default": {
+          "projectId": "seasonanimation",
+          "appId": "1:227613701589:ios:ccb1860b59325a7710b95c",
+          "uploadDebugSymbols": false,
+          "fileOutput": "ios/Runner/GoogleService-Info.plist"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "seasonanimation",
+          "configurations": {
+            "android": "1:227613701589:android:47060c581a42b99e10b95c",
+            "ios": "1:227613701589:ios:ccb1860b59325a7710b95c",
+            "web": "1:227613701589:web:e2eb4e68ab97b14a10b95c"
+          }
+        }
+      }
+    }
+  },
+  "hosting": {
+    "public": "build/web",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
